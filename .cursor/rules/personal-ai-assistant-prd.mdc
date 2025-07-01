@@ -1,0 +1,194 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Personal AI Assistant – Product Requirements Document
+
+## 1. Introduction
+
+This document outlines the requirements for a personal AI assistant project, aimed at streamlining daily tasks and enhancing productivity through an intelligent chat interface. The assistant will integrate with common productivity tools, offering features like calendar management, email handling, to-do list organization, and personalized notifications. A key differentiator will be the "knowledge dump" functionality, allowing users to provide personal context for optimized AI interactions. The project will be built using Nuxt for the full-stack framework and Mastra AI TypeScript framework for AI capabilities.
+
+## 2. Goals & Objectives
+
+**Primary Goal:** Provide users with a centralized, intelligent hub for managing personal and professional tasks, reducing cognitive load and increasing efficiency.
+
+### Key Objectives
+
+1. Develop a user-friendly web UI dashboard with an intuitive chat interface.
+2. Enable AI-powered creation and management of calendar events.
+3. Facilitate AI-assisted email composition and sending.
+4. Provide robust to-do list management capabilities.
+5. Implement intelligent email notifications based on user availability.
+6. Develop a "knowledge dump" feature for personalized AI understanding.
+7. Incorporate prompt and document optimization for enhanced AI performance.
+8. Ensure a secure and private user experience.
+
+## 3. Target Audience
+
+Individuals seeking to optimize their personal and professional productivity, including:
+
+- Busy professionals
+- Students
+- Entrepreneurs
+- Anyone looking to streamline daily tasks and leverage AI for assistance
+
+## 4. Key Features
+
+### 4.1 Web UI Dashboard
+
+**Dashboard Overview**
+
+- Clean, minimalist design.
+- Quick access to calendar, emails, and to-do lists.
+- Prominent chat interface.
+- Customizable widgets (e.g., upcoming events, unread emails, top priorities).
+
+**Chat Interface**
+
+- Real-time, interactive chat window.
+- Clear display of AI responses.
+- Input field with support for multi-line text.
+- History of chat interactions.
+- Contextual understanding across conversations.
+
+### 4.2 Core AI Assistant Functionality
+
+**Calendar Management**
+
+- **Event Creation:** Users can instruct the AI to create new calendar events (e.g., "Schedule a meeting with John for Tuesday at 2 PM about project X").
+- **Event Modification:** Ability to reschedule, update details, or cancel existing events.
+- **Event Inquiry:** Users can ask about their schedule (e.g., "What's on my calendar tomorrow?").
+- **Integration:** Future integration with popular calendar services (Google Calendar, Outlook Calendar).
+
+**Email Management**
+
+- **Email Composition:** AI can draft emails based on user prompts (e.g., "Draft an email to Sarah confirming our meeting for next week").
+- **Email Sending:** Ability to send drafted emails directly through the interface.
+- **Email Summarization:** AI can summarize incoming emails (future enhancement).
+- **Reply Suggestions:** AI can suggest quick replies to incoming emails (future enhancement).
+
+**To-Do List Management**
+
+- **Task Creation:** Users can add new tasks (e.g., "Add 'buy groceries' to my to-do list").
+- **Task Management:** Mark tasks as complete, set due dates, prioritize tasks.
+- **Task Inquiry:** Users can ask about their pending tasks (e.g., "What are my high-priority tasks for today?").
+
+**Personalized Email Notifications**
+
+- **Availability-Based Notifications:** AI sends email notifications to users or designated contacts based on user availability (e.g., "Notify John if I become free before 3 PM").
+- **Meeting Reminders:** AI sends timely reminders for upcoming events.
+- **Customizable Notification Preferences:** Users can define types and frequency of notifications.
+
+### 4.3 Knowledge Dump & Optimization
+
+**Knowledge Dump Interface**
+
+- Dedicated section for users to input a summary of themselves, their roles, interests, and typical workflows.
+- Free-form text input with suggested categories (e.g., "About Me," "My Work," "Hobbies").
+
+**Prompt Optimization**
+
+- AI analyzes the user's knowledge dump to automatically optimize subsequent prompts for better understanding and more relevant responses.
+- Option for users to explicitly request optimization for a specific prompt or document.
+
+**Document Optimization**
+
+- Users can upload documents (e.g., resumes, project briefs) for the AI to analyze and incorporate into its understanding.
+- AI can suggest improvements to documents based on user goals and context.
+
+## 5. Technical Requirements
+
+- **Full-stack Framework:** Nuxt.js (Vue.js)
+- **AI Framework:** Mastra AI TypeScript Framework
+- **Database:** Postgres + Drizzle ORM
+- **Deployment Environment:** Self-host via Docker (Dockerfile + Docker Compose)
+- **Authentication:** Better-Auth
+- **APIs:** Integration with external APIs for calendar, email, etc. (e.g., Google Calendar API, Microsoft Graph API)
+- **Scalability:** Architecture designed to handle increasing user base and data.
+- **Security:** Data encryption, secure API calls, protection against common web vulnerabilities.
+- **Performance:** Fast response times for AI interactions and UI rendering.
+
+## 6. UI / UX Requirements
+
+- **Intuitive Design:** Easy to navigate and understand for all user levels.
+- **Responsive Design:** Adapts seamlessly to various screen sizes (desktop, tablet, mobile).
+- **Accessibility:** Adherence to WCAG guidelines for accessibility.
+- **Consistent Branding:** Unified visual elements and branding throughout the application.
+- **Feedback Mechanisms:** Clear indications of AI processing, success, and error messages.
+
+## 7. Non-Functional Requirements
+
+**Performance**
+
+- AI response time: < 2 seconds for most queries.
+- Page load time: < 3 seconds.
+
+**Security**
+
+- User data encryption at rest and in transit.
+- Regular security audits and penetration testing.
+
+**Scalability**
+
+- Ability to support thousands of concurrent users.
+- Database and infrastructure designed for growth.
+
+**Reliability**
+
+- High uptime (e.g., 99.9%).
+- Robust error handling and logging.
+
+**Maintainability**
+
+- Clean, well-documented codebase.
+- Modular architecture for easy updates and feature additions.
+
+**Privacy**
+
+- Clear privacy policy outlining data collection and usage.
+- User control over their data.
+
+## 8. Future Enhancements (Roadmap)
+
+- Voice input for chat interface.
+- Integration with more third-party services (e.g., project management tools, note-taking apps).
+- Proactive suggestions and insights from the AI based on user data.
+- Advanced natural language understanding for more complex queries.
+- Multi-user collaboration features (e.g., shared to-do lists, team calendars).
+
+## 9. Success Metrics
+
+**User Engagement**
+
+- Daily / Weekly / Monthly active users.
+- Average session duration.
+- Number of AI interactions per user.
+
+**Feature Adoption**
+
+- Percentage of users utilizing calendar, email, and to-do list features.
+- Usage of the "knowledge dump" functionality.
+
+**User Satisfaction**
+
+- Net Promoter Score (NPS) or user surveys.
+- Feedback and testimonials.
+
+**Performance**
+
+- AI response time metrics.
+- System uptime and error rates.
+
+## 10. Assumptions & Constraints
+
+**Assumptions**
+
+- Users have basic computer literacy.
+- Access to reliable internet connection.
+- Availability of necessary third-party API keys and access.
+
+**Constraints**
+
+- Initial focus on core features, with advanced features delivered in future iterations.
+- Reliance on the capabilities and stability of the Mastra AI TypeScript framework.

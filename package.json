@@ -1,0 +1,60 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "auth:gen": "bunx @better-auth/cli@latest generate --config server/auth/index.ts  --output server/auth/auth-schema.ts -y",
+    "db:push": "drizzle-kit push"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^1.2.19",
+    "@ai-sdk/openai": "^1.3.22",
+    "@mastra/core": "^0.10.8",
+    "@mastra/libsql": "^0.11.0",
+    "@mastra/loggers": "^0.10.2",
+    "@mastra/memory": "^0.11.0",
+    "@mastra/pg": "^0.12.0",
+    "@mastra/rag": "^1.0.1",
+    "@nuxt/eslint": "1.4.1",
+    "@nuxt/fonts": "0.11.4",
+    "@nuxt/icon": "1.15.0",
+    "@nuxt/image": "1.10.0",
+    "@nuxt/scripts": "0.11.8",
+    "@tailwindcss/vite": "^4.1.11",
+    "@unhead/vue": "^2.0.3",
+    "@vueuse/core": "^13.4.0",
+    "ai": "^4.3.16",
+    "better-auth": "^1.2.12",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.2",
+    "eslint": "^9.0.0",
+    "lucide-vue-next": "^0.525.0",
+    "mastra": "^0.10.8",
+    "nodemailer": "^7.0.4",
+    "nuxt": "^3.17.5",
+    "reka-ui": "^2.3.1",
+    "shadcn-nuxt": "2.2.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.11",
+    "tw-animate-css": "^1.3.4",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "2.5.0",
+    "@types/nodemailer": "^6.4.17"
+  },
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "protobufjs",
+    "unrs-resolver"
+  ]
+}

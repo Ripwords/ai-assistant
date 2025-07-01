@@ -1,0 +1,28 @@
+services:
+  nuxt:
+    build:
+      context: ..
+      dockerfile: docker/prod/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://postgres:password@db:54323/postgres
+    depends_on:
+      - db
+
+  db:
+    image: pgvector/pgvector:pg17
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "54323:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./db/init-pgvector.sql:/docker-entrypoint-initdb.d/pgvector.sql
+
+volumes:
+  db-data:

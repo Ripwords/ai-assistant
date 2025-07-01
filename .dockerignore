@@ -1,0 +1,9 @@
+node_modules
+.git
+.dockerignore
+bun.lock
+*.log
+Dockerfile
+**/node_modules
+.output
+.ci 
