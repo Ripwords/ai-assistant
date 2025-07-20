@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue"
 import { useRouter } from "#app"
 
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -15,24 +13,20 @@ import { authClient } from "~/lib/auth"
 
 definePageMeta({ layout: "auth" })
 
-const form = ref({
-  email: "",
-  password: "",
-})
-
 const router = useRouter()
 
-async function handleLogin() {
-  const { data, error } = await authClient.signIn.email({
-    email: form.value.email,
-    password: form.value.password,
+async function handleGoogleLogin() {
+  const { data, error } = await authClient.signIn.social({
+    provider: "google",
+    scopes: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/calendar.app.created",
+    ],
+    callbackURL: "/dashboard",
   })
 
-  if (!error) {
-    router.push("/dashboard")
-  }
-
-  if (data) {
+  if (!error && data) {
     router.push("/dashboard")
   }
 }
@@ -42,38 +36,21 @@ async function handleLogin() {
   <div class="flex min-h-screen items-center justify-center p-4">
     <Card class="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Login</CardTitle>
+        <CardTitle>Welcome to AI Assistant</CardTitle>
       </CardHeader>
 
       <CardContent class="space-y-4">
-        <Input
-          v-model="form.email"
-          placeholder="Email"
-          type="email"
-        />
-        <Input
-          v-model="form.password"
-          placeholder="Password"
-          type="password"
-        />
         <Button
           class="w-full"
-          @click="handleLogin"
-          >Sign in</Button
+          @click="handleGoogleLogin"
+          >Sign in with Google</Button
         >
       </CardContent>
 
-      <CardFooter class="justify-center space-x-2">
-        <NuxtLink
-          to="/register"
-          class="text-sm text-muted-foreground hover:underline"
-          >Don't have an account?</NuxtLink
-        >
-        <NuxtLink
-          to="/forgot-password"
-          class="text-sm hover:underline"
-          >Forgot password?</NuxtLink
-        >
+      <CardFooter class="justify-center">
+        <p class="text-sm text-muted-foreground">
+          Sign in with your Google account to get started
+        </p>
       </CardFooter>
     </Card>
   </div>

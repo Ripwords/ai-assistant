@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { authClient } from "~/lib/auth"
+
+const { data: session } = await authClient.useSession(useFetch)
 
 interface Message {
   role: "user" | "assistant"
@@ -9,7 +11,10 @@ interface Message {
 }
 
 const messages = ref<Message[]>([
-  { role: "assistant", content: "Hello! How can I help you today?" },
+  {
+    role: "assistant",
+    content: `Hello ${session.value?.user?.name}! How can I help you today?`,
+  },
 ])
 
 const input = ref("")
@@ -55,7 +60,7 @@ async function send() {
             msg.role === 'user' ? 'bg-primary text-primary-foreground' : ''
           "
         >
-          <CardContent class="whitespace-pre-line p-3 text-sm">
+          <CardContent class="whitespace-pre-line px-3 text-sm">
             {{ msg.content }}
           </CardContent>
         </Card>
@@ -67,7 +72,7 @@ async function send() {
       @submit.prevent="send"
     >
       <div class="flex items-end gap-2">
-        <Textarea
+        <Input
           v-model="input"
           rows="2"
           placeholder="Type your message..."
